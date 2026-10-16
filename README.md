@@ -1,4 +1,4 @@
-# Programacion-3-grupos
+# Grupo 5
 
 ## ExpenseTracker
 
@@ -79,3 +79,13 @@ Todavia no se usa base de datos, Context ni una API, de acuerdo con el alcance d
 
 Agregar aqui capturas reales de las pantallas Resumen, Movimientos y Agregar ejecutandose
 en el telefono con Expo Go. Esas capturas se deben tomar desde el dispositivo.
+
+<img width="720" height="1600" alt="9" src="https://github.com/user-attachments/assets/6a30cc23-62d3-4dd4-98cc-73470313ed71" />
+<img width="720" height="1600" alt="8" src="https://github.com/user-attachments/assets/8b8064e4-a930-4aa4-abda-eb3221b6e261" />
+<img width="720" height="1600" alt="7" src="https://github.com/user-attachments/assets/5479e97c-6be9-4fed-9bed-e46bf532f61f" />
+<img width="720" height="1600" alt="6" src="https://github.com/user-attachments/assets/2240173b-1bc5-40d1-ae5f-47cc148bc318" />
+<img width="720" height="1600" alt="5" src="https://github.com/user-attachments/assets/2d07dbf3-c38e-4b4b-9356-cd871002cc5e" />
+<img width="720" height="1600" alt="4" src="https://github.com/user-attachments/assets/37735fa8-7ac7-4db5-968d-f486711efab4" />
+<img width="720" height="1600" alt="3" src="https://github.com/user-attachments/assets/578d3406-de93-4439-8725-1cd948118260" />
+<img width="720" height="1600" alt="2" src="https://github.com/user-attachments/assets/16dc7989-058a-4abb-9a7f-7bfe0b6c254a" />
+<img width="720" height="1600" alt="1" src="https://github.com/user-attachments/assets/26ad1e0f-55d4-4693-ad70-ca33f4624199" />
