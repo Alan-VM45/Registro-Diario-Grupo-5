@@ -5,10 +5,11 @@ import { categories, formatCurrency } from '../data';
 const monthName = new Intl.DateTimeFormat('es-AR', { month: 'long', year: 'numeric' })
     .format(new Date())
     .toUpperCase();
+const monthAbbreviation = new Intl.DateTimeFormat('es-AR', { month: 'short' })
+    .format(new Date())
+    .toUpperCase();
 
-export default function HomeScreen({ expenses, totalSpent, monthlyBudget, onAddExpense, onSeeExpenses }) {
-    const remaining = Math.max(monthlyBudget - totalSpent, 0);
-    const progress = Math.min(totalSpent / monthlyBudget, 1);
+export default function HomeScreen({ expenses, totalSpent, onAddExpense, onSeeExpenses }) {
     const categoryTotals = categories
         .map((category) => ({
         ...category,
@@ -36,17 +37,13 @@ export default function HomeScreen({ expenses, totalSpent, monthlyBudget, onAddE
 
         <View style={styles.budgetCard}>
             <View style={styles.cardTop}>
-            <Text style={styles.cardLabel}>GASTADO ESTE MES</Text>
-            <View style={styles.periodTag}><Text style={styles.periodText}>OCT</Text></View>
+            <Text style={styles.cardLabel}>GASTOS REGISTRADOS</Text>
+            <View style={styles.periodTag}><Text style={styles.periodText}>{monthAbbreviation}</Text></View>
             </View>
             <Text style={styles.total}>{formatCurrency(totalSpent)}</Text>
-            <View style={styles.progressTrack}>
-            <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
-            </View>
-            <View style={styles.budgetFooter}>
-            <Text style={styles.budgetText}>Presupuesto {formatCurrency(monthlyBudget)}</Text>
-            <Text style={styles.availableText}>{formatCurrency(remaining)} disponible</Text>
-            </View>
+            <Text style={styles.budgetNote}>
+                {expenses.length === 1 ? '1 gasto cargado' : `${expenses.length} gastos cargados`}
+            </Text>
         </View>
 
         <View style={styles.sectionHeader}>
@@ -75,7 +72,9 @@ export default function HomeScreen({ expenses, totalSpent, monthlyBudget, onAddE
             <Text style={styles.link}>Ver todos</Text>
             </Pressable>
         </View>
-        {expenses.slice(0, 3).map((expense) => (
+        {expenses.length === 0 ? (
+            <Text style={styles.emptyText}>Todavía no cargaste gastos.</Text>
+        ) : expenses.slice(0, 3).map((expense) => (
             <ExpenseRow key={expense.id} expense={expense} />
         ))}
 
@@ -182,31 +181,10 @@ const styles = StyleSheet.create({
         fontSize: 31,
         fontWeight: '800',
     },
-    progressTrack: {
-        height: 7,
-        overflow: 'hidden',
-        borderRadius: 5,
-        backgroundColor: '#436157',
-    },
-    progressFill: {
-        height: '100%',
-        borderRadius: 5,
-        backgroundColor: '#D8F17F',
-    },
-    budgetFooter: {
+    budgetNote: {
         marginTop: 11,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        gap: 8,
-    },
-    budgetText: {
         color: '#D1DDD4',
         fontSize: 10,
-    },
-    availableText: {
-        color: '#E2F184',
-        fontSize: 10,
-        fontWeight: '700',
     },
     sectionHeader: {
         marginBottom: 7,

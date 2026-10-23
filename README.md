@@ -2,9 +2,9 @@
 
 ## ExpenseTracker
 
-Prototipo inicial de ExpenseTracker construido con React Native y Expo, preparado
-para ejecutarse desde Expo Go. Permite consultar un resumen, filtrar movimientos y
-registrar gastos de ejemplo durante la sesion.
+Prototipo de ExpenseTracker construido con React Native y Expo, preparado para
+ejecutarse desde Expo Go. La app inicia vacia para que cada usuario cargue sus propios
+gastos desde el formulario.
 
 ## Requisitos
 
@@ -42,7 +42,7 @@ npx expo start --tunnel
 
 ## Archivos principales
 
-- `App.js`: componente raiz y punto de partida para construir pantallas.
+- `App.js`: punto de entrada que reexporta `AppNavigator`, sin logica ni estilos propios.
 - `index.js`: registra el componente raiz para Expo.
 - `app.json`: nombre, identificador, orientacion, iconos y ajustes de plataforma.
 - `package.json`: dependencias y comandos disponibles (`npm start`, `npm run android`,
@@ -50,7 +50,8 @@ npx expo start --tunnel
 - `assets/`: iconos e imagenes de la aplicacion.
 - `src/screens/`: vistas de resumen, movimientos y alta de gastos.
 - `src/components/`: componentes compartidos, como las filas de gastos y las pestanas.
-- `src/data.js`: categorias, movimientos de muestra y formato de moneda.
+- `src/navigation/AppNavigator.js`: estado de la app y navegacion entre las tres vistas.
+- `src/data.js`: categorias y formato de moneda.
 
 En el flujo gestionado de Expo no aparecen las carpetas `android/` e `ios/` al
 iniciar. Expo las administra hasta que el proyecto necesite codigo nativo propio.
@@ -67,18 +68,25 @@ dispositivo. Fast Refresh refleja los cambios al guardar.
 
 ## Sprint 1
 
-- **Resumen:** total del mes, presupuesto, disponible, categorias y movimientos recientes.
+- **Resumen:** total cargado, categorias y movimientos recientes; al iniciar, el total es cero.
 - **Movimientos:** lista de gastos con filtros por categoria.
 - **Agregar:** formulario con concepto, importe y categoria; al guardar, el gasto aparece
     en la lista y actualiza el resumen.
 
-Los datos son de ejemplo y se mantienen solo en memoria mientras la app esta abierta.
-Todavia no se usa base de datos, Context ni una API, de acuerdo con el alcance del sprint.
+La navegacion actual cambia entre pestañas mediante estado local; React Navigation se
+incorporara cuando se vea ese tema en la cursada. No se precargan gastos de ejemplo:
+cada usuario ingresa sus propios movimientos. Las categorias son opciones del
+formulario, no registros personales. Los gastos se mantienen solo en memoria mientras
+la app esta abierta; todavia no se usa base de datos, Context ni una API, de acuerdo
+con el sprint.
 
 ## Capturas de Expo Go
 
 Agregar aqui capturas reales de las pantallas Resumen, Movimientos y Agregar ejecutandose
 en el telefono con Expo Go. Esas capturas se deben tomar desde el dispositivo.
+
+Si las capturas siguientes muestran gastos de demostracion, reemplazalas por capturas
+de esta version, que inicia sin movimientos.
 
 <img width="720" height="1600" alt="9" src="https://github.com/user-attachments/assets/6a30cc23-62d3-4dd4-98cc-73470313ed71" />
 <img width="720" height="1600" alt="8" src="https://github.com/user-attachments/assets/8b8064e4-a930-4aa4-abda-eb3221b6e261" />

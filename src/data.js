@@ -7,14 +7,6 @@ export const categories = [
     { name: 'Otros', symbol: '•', color: '#66736E', background: '#E9EDE9' },
 ];
 
-export const initialExpenses = [
-    { id: '1', title: 'Almuerzo', category: 'Comida', amount: 8500, date: 'Hoy', time: '13:24' },
-    { id: '2', title: 'Viaje a la facultad', category: 'Transporte', amount: 2200, date: 'Hoy', time: '09:15' },
-    { id: '3', title: 'Supermercado', category: 'Hogar', amount: 32450, date: 'Ayer', time: '18:42' },
-    { id: '4', title: 'Café con leche', category: 'Comida', amount: 3900, date: '14 oct.', time: '16:10' },
-    { id: '5', title: 'Entrada de cine', category: 'Ocio', amount: 6800, date: '13 oct.', time: '21:05' },
-];
-
 export function formatCurrency(value) {
     return new Intl.NumberFormat('es-AR', {
         style: 'currency',
